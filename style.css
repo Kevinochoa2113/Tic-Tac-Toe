@@ -1,0 +1,266 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::root {}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.board {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(3, auto);
+    justify-items: center;
+    align-items: center;
+    border: #1e208f solid 20px;
+}
+
+h4{
+    text-align: center;
+}
+.box {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.box.x, .box.circle {
+    cursor: not-allowed;
+}
+
+.box:first-child, .box:nth-child(2), .box:nth-child(3) {
+    border-top: none;
+}
+
+.box:nth-child(1), .box:nth-child(4), .box:nth-child(7) {
+    border-left: none;
+}
+
+.box:nth-child(3), .box:nth-child(6), .box:nth-child(9) {
+    border-right: none;
+}
+
+.box:nth-child(7), .box:nth-child(8), .box:nth-child(9) {
+    border-bottom: none;
+}
+
+/* THE X STYLES  */
+
+.board.x .box:not(.x):not(.circle):hover::before, .board.x .box:not(.x):not(.circle):hover::after {
+    background-color: grey;
+}
+
+.box.x::before, .box.x::after {
+    background-color: black;
+}
+
+.box.x::before, .box.x::after, .board.x .box:not(.x):not(.circle):hover::before, .board.x .box:not(.x):not(.circle):hover::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 80px;
+}
+
+.box.x::before, .board.x .box:hover::before {
+    transform: rotate(45deg);
+}
+
+.box.x::after, .board.x .box:hover::after {
+    transform: rotate(-45deg);
+}
+
+/* THE END OF X STYLES */
+
+/* THE START OF CIRCLE STYLES */
+
+.board.circle .box:not(.x):not(.circle):hover:before, .board.circle .box:not(.x):not(.circle):hover:after {
+    background-color: grey;
+}
+
+.board.circle .box:before {
+    background-color: black;
+}
+
+.box.circle::before, .box.circle::after, .board.circle .box:not(.x):not(.circle):hover:before, .board.circle .box:not(.x):not(.circle):hover:after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.box.circle::before, .board.circle .box:not(.x):not(.circle):hover:before {
+    width: 80px;
+    height: 80px;
+}
+
+.box.circle::after, .board.circle .box:not(.x):not(.circle):hover:after {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+}
+
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    flex-direction: column;
+}
+
+.winning-message button {
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: .25em .5em;
+    cursor: pointer;
+}
+
+.winning-message button:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+
+.winning-message.show {
+    display: flex;
+}
+/* CSS INTRO  */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    cursor: crosshair;
+    font-family: Poppins;
+    background-color: #ffffff;
+}
+
+.content {
+    width: 60%;
+    margin: 0 auto;
+    z-index: -1;
+    position: absolute;
+    top: 60%;
+    left: 10%;
+    transform: translate(0, -50%);
+}
+
+.content h1 {
+    font-family: Poppins;
+    font-size: 10px;
+    color: #101010;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.content p {
+    margin-top: 0;
+    text-align: left;
+    color: #101010;
+    font-weight: 100;
+}
+
+.overlay-2 {
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #2250b3;
+}
+
+.overlay {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #1969c5;
+}
+
+.overlay p {
+    font-size: 100px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.screen {
+    color: #100347;
+    font-family: Poppins;
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.myBtn {
+    font-family: Poppins;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button {
+    display: block;
+    padding: 24px 48px;
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: #fff;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    background: none;
+    z-index: 1;
+    cursor: crosshair;
+    transition: 0.8s ease-out;
+}
+
+.myBtn:hover {
+    color: #101010;
+    cursor: crosshair;
+}
+
+.myBtn:before {
+    content: "";
+    position: absolute;
+    background: #fff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    transition: top 0.8s ease-out;
+}
+
+.myBtn:hover:before {
+    top: 0;
+}

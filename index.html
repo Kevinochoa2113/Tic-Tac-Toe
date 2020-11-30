@@ -1,56 +1,44 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 
 <head>
-    <meta charset='UTF-8'>
-    <meta name='author' content='Kevin Ochoa'>
-    <meta name='description' content='Description goes here.'>
-
-    <meta property='og:image' content='favicon.png'>
-    <meta property='og:description' content='This is a temporary description.'>
-
-    <meta property='og:title' content='Boilerplate'>
-    <title>Tic Tac Toe</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Intro Animation</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-    <link rel='shortcut icon' href='favicon.png' type='image/x-icon'>
 </head>
 
 <body>
 
-    <div class="overlay">
-        <p class="screen">Tic-Tac-Toe</p>
-        <div class="intro">
-            <button class="myBtn" onclick="fadeOut()">Tic-Tac-Toe</button>
+    <div class="container">
+
+        <div class="overlay">
+            <p class="screen">Tic-Tac-Toe</p>
+            <div class="intro">
+                <button class="myBtn" onclick="fadeOut()">Play Now!</button>
+            </div>
+        </div>
+
+        <div class="overlay-2"></div>
+        <h1>Tic Tac Toe</h1>
+        <div class="board" id="board">
+            <div class="box" boxe></div>
+            <div class="box" boxe></div>
+            <div class="box" boxe></div>
+            <div class="box" boxe></div>
+            <div class="box" boxe></div>
+            <div class="box" boxe></div>
+            <div class="box" boxe></div>
+            <div class="box" boxe></div>
+            <div class="box" boxe></div>
         </div>
     </div>
-
-    <div class="overlay-2"></div>
-
-
-    <header>
-        <h1>Tic-Tac-Toe</h1>
-        <h4><div id="turn">Its O turn</div></h4>
-    </header>
-
-    <div class="board circle" id="Ticboard">
-        <div class="box"></div>
-        <div class="box "></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
     </div>
     <div class="winning-message" id="winningMessage">
         <div data-winning-message-text></div>
-        <button id="restartButton">}</button>
+        <button id="restartButton">Restart</button>
     </div>
     <script src="script.js"></script>
 </body>
